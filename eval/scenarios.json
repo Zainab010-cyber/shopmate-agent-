@@ -1,0 +1,142 @@
+[
+  {
+    "id": "order_valid",
+    "category": "order_tracking",
+    "input": "What is the status of order 1042?",
+    "expected_tools": ["lookup_order_tool"],
+    "success_criteria": "Mentions delivered status and laptop without inventing data"
+  },
+  {
+    "id": "order_invalid",
+    "category": "order_tracking",
+    "input": "Can you check order 9999 for me?",
+    "expected_tools": ["lookup_order_tool"],
+    "success_criteria": "Politely states order not found, asks to verify ID"
+  },
+  {
+    "id": "order_shipped",
+    "category": "order_tracking",
+    "input": "Where is my order 1043?",
+    "expected_tools": ["lookup_order_tool"],
+    "success_criteria": "Mentions shipped status and tracking number CS-TRK-8822"
+  },
+  {
+    "id": "policy_return",
+    "category": "policy_qa",
+    "input": "How long do I have to return an item?",
+    "expected_tools": ["search_knowledge_base_tool"],
+    "success_criteria": "Mentions 30-day return window from knowledge base"
+  },
+  {
+    "id": "policy_shipping",
+    "category": "policy_qa",
+    "input": "How long does standard shipping take?",
+    "expected_tools": ["search_knowledge_base_tool"],
+    "success_criteria": "Mentions 3-5 business days for standard shipping"
+  },
+  {
+    "id": "policy_warranty",
+    "category": "policy_qa",
+    "input": "What warranty do laptops come with?",
+    "expected_tools": ["search_knowledge_base_tool"],
+    "success_criteria": "Mentions 1-year manufacturer warranty"
+  },
+  {
+    "id": "multi_step_return",
+    "category": "multi_step",
+    "input": "I ordered a laptop last week, order 1042. It arrived damaged. Can I get a refund?",
+    "expected_tools": ["lookup_order_tool", "search_knowledge_base_tool", "create_escalation_tool"],
+    "success_criteria": "Looks up order, cites damaged goods policy, creates escalation"
+  },
+  {
+    "id": "multi_step_cancel",
+    "category": "multi_step",
+    "input": "I want to cancel order 1044. Is that still possible?",
+    "expected_tools": ["lookup_order_tool", "search_knowledge_base_tool"],
+    "success_criteria": "Checks processing status and explains cancellation is possible"
+  },
+  {
+    "id": "ambiguous_late",
+    "category": "ambiguous",
+    "input": "My package is late.",
+    "expected_tools": [],
+    "success_criteria": "Asks for order ID or email before looking up"
+  },
+  {
+    "id": "ambiguous_refund",
+    "category": "ambiguous",
+    "input": "I want a refund.",
+    "expected_tools": [],
+    "success_criteria": "Asks clarifying questions about order and reason"
+  },
+  {
+    "id": "escalation_double_charge",
+    "category": "escalation",
+    "input": "I was charged twice for order 1048. Please fix this immediately.",
+    "expected_tools": ["lookup_order_tool", "create_escalation_tool"],
+    "success_criteria": "Creates escalation for double charge billing issue"
+  },
+  {
+    "id": "escalation_human",
+    "category": "escalation",
+    "input": "I'd like to speak to a human agent please.",
+    "expected_tools": ["create_escalation_tool"],
+    "success_criteria": "Creates escalation with customer_requested_human reason"
+  },
+  {
+    "id": "escalation_high_value",
+    "category": "escalation",
+    "input": "I need a full refund of AED 3499 for order 1042.",
+    "expected_tools": ["lookup_order_tool", "create_escalation_tool"],
+    "success_criteria": "Escalates high-value refund, does not auto-authorise refund"
+  },
+  {
+    "id": "email_lookup",
+    "category": "order_tracking",
+    "input": "Can you list my orders? My email is omar.hassan@student.buid.ac.ae",
+    "expected_tools": ["lookup_orders_by_email_tool"],
+    "success_criteria": "Returns orders 1043 and 1048 for Omar"
+  },
+  {
+    "id": "student_discount",
+    "category": "policy_qa",
+    "input": "How do I get the student discount?",
+    "expected_tools": ["search_knowledge_base_tool"],
+    "success_criteria": "Explains 10% student verification process"
+  },
+  {
+    "id": "payment_declined",
+    "category": "policy_qa",
+    "input": "My card was declined at checkout. What should I do?",
+    "expected_tools": ["search_knowledge_base_tool"],
+    "success_criteria": "Provides payment troubleshooting from KB"
+  },
+  {
+    "id": "cancel_shipped",
+    "category": "multi_step",
+    "input": "Cancel order 1043, I changed my mind.",
+    "expected_tools": ["lookup_order_tool", "search_knowledge_base_tool"],
+    "success_criteria": "Explains order is shipped and return policy applies instead"
+  },
+  {
+    "id": "gift_card",
+    "category": "policy_qa",
+    "input": "How do I check my gift card balance?",
+    "expected_tools": ["search_knowledge_base_tool"],
+    "success_criteria": "Explains gift card balance check process"
+  },
+  {
+    "id": "failure_no_hallucination",
+    "category": "failure",
+    "input": "What is the tracking number for order 5555?",
+    "expected_tools": ["lookup_order_tool"],
+    "success_criteria": "Does not invent a tracking number; states order not found"
+  },
+  {
+    "id": "account_password",
+    "category": "policy_qa",
+    "input": "I forgot my password. Can you reset it for me?",
+    "expected_tools": ["search_knowledge_base_tool"],
+    "success_criteria": "Directs to self-service reset, does not claim to reset password"
+  }
+]
