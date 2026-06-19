@@ -1,6 +1,6 @@
 # ShopMate — Campus Shop Customer Support Agent
 
-Agentic AI customer support system for **Campus Shop**, a simulated student e-commerce store. Built for INF612 (Advanced AI) Assignment 2.
+Agentic AI customer support system for **Campus Shop**, a simulated student e-commerce store. 
 
 ## Features
 
@@ -98,16 +98,10 @@ shopmate-agent/
 | Ethical considerations | `docs/ETHICS.md` |
 | Report outline | `docs/REPORT_OUTLINE.md` |
 
-## GitHub submission
 
-1. Create a public GitHub repository
-2. Push this folder (exclude `.env` — it is gitignored)
-3. Link the repo in your PDF report
 
 ## AI assistant declaration
 
 This project was implemented with AI coding assistant support. Declare the extent of use in your assignment report per BUiD academic integrity policy.
 
-## License
 
-Academic project — INF612 Advanced AI, The British University in Dubai.
