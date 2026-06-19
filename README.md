@@ -87,21 +87,9 @@ shopmate-agent/
 └── README.md
 ```
 
-## Assignment deliverables
-
-| Deliverable | Location |
-|-------------|----------|
-| Agent implementation | This repository |
-| Streamlit demo | `streamlit run app/main.py` |
-| Evaluation results | `eval/run_eval.py` → `eval/results/` |
-| Demo video script | `docs/DEMO_SCRIPT.md` |
-| Ethical considerations | `docs/ETHICS.md` |
-| Report outline | `docs/REPORT_OUTLINE.md` |
 
 
 
-## AI assistant declaration
 
-This project was implemented with AI coding assistant support. Declare the extent of use in your assignment report per BUiD academic integrity policy.
 
 
